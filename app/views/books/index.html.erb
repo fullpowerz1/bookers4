@@ -53,7 +53,48 @@
     </div>
     <!--ここまで左側のレイアウト-->
 
+    <!--右側のレイアウト-->
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
 
+      <!--テーブル-->
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <!--繰り返し処理-->
+        <% @books.each do |book| %>
+          <tbody>
+            <tr>
+              <td>
+                <%= link_to user_path(book.user.id) do %>
+                  <%= image_tag book.user.get_profile_image(80, 80) %>
+                <% end %>
+              </td>
+
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+
+              <td>
+                <%= book.body %>
+              </td>
+
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+
+    </div>
+    <!--ここまで右側のレイアウト-->
 
   </div>
 </div>
