@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # 投稿のルーティング
-  resources :books, only: [:index,:show,:edit,:create,:destroy]
+  resources :books, only: [:index,:show,:edit,:create,:destroy,:update]
 
   # 会員のルーティング
   resources :users, only: [:index,:show,:edit,:update]
