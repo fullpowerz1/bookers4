@@ -1,2 +1,49 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <!--左側のレイアウトと部分テンプレート-->
+    <div class="col-md-3">
+      <%= render 'books/template', user: @user, newbook: @newbook %>
+    </div>
+
+    <!--右側のレイアウト-->
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+
+      <!--テーブル-->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <!--繰り返し処理-->
+        <% @users.each do |user| %>
+          <tbody>
+            <tr>
+              <td>
+                <%= image_tag user.get_profile_image(80, 80) %>
+              </td>
+
+              <td>
+                <%= user.name %>
+              </td>
+
+              <td>
+                <%= link_to user_path(user.id) do %>
+                  Show
+                <% end %>
+              </td>
+
+            </tr>
+          </tbody>
+        <% end %>
+
+      </table>
+    </div>
+    <!--ここまで右側のレイアウト-->
+
+  </div>
+</div>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :books, only: [:index,:show,:edit,:create,:destroy]
 
   # 会員のルーティング
-  resources :users, only: [:index,:show,:edit]
+  resources :users, only: [:index,:show,:edit,:update]
 
   get 'homes/about' => 'homes#about',as: 'about'
 end
