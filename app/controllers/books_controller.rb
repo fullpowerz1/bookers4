@@ -22,7 +22,7 @@ class BooksController < ApplicationController
       flash[:success] = "You have created book successfully."
       redirect_to book_path(@book.id)
     else
-      @book = Book.new
+      @books = Book.all
       @user = current_user
       render :index
     end
